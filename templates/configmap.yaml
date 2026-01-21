@@ -4,9 +4,6 @@ kind: ConfigMap
 metadata:
   name: {{ include "pocket-id.fullname" . }}-config
 data:
-  {{- if not .Values.config.encryptionKey }}
-  {{- required "encryptionKey must be set using openssl rand -base64 32" .Values.config.encryptionKey }}
-  {{- end }}
   {{- if .Values.ingress.enabled -}}
   {{- if not .Values.config.appUrl  }}
   {{- required "appUrl needs to be set if using an ingress" .Values.config.appUrl }}
