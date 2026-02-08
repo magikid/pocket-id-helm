@@ -153,3 +153,26 @@ env: []
 #     secretKeyRef:
 #       name: pocket-id-encryption-key
 #       key: ENCRYPTION_KEY
+
+initContainers: []
+# initContainers:
+# - name: init-litestream
+#   image: litestream/litestream:0.3
+#   args: ['restore', '-if-db-not-exists', '-if-replica-exists', '/data/pocket-id.db']
+#   volumeMounts:
+#   - name: data
+#     mountPath: /data
+#   - name: litestream
+#     mountPath: /etc/litestream.yml
+#     subPath: litestream.yml
+#   env:
+#   - name: LITESTREAM_ACCESS_KEY_ID
+#     valueFrom:
+#       secretKeyRef:
+#         name: litestream
+#         key: LITESTREAM_ACCESS_KEY_ID
+#   - name: LITESTREAM_SECRET_ACCESS_KEY
+#     valueFrom:
+#       secretKeyRef:
+#         name: litestream
+#         key: LITESTREAM_SECRET_ACCESS_KEY
